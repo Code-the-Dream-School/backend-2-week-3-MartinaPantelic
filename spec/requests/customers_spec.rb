@@ -83,9 +83,7 @@ RSpec.describe "CustomersControllers", type: :request do
 
   describe "put customer_path with invalid data" do
     it "does not update the customer record or redirect" do
-      # first: create a customer
       customer = FactoryBot.create(:customer)
-      # validator that makes sure the last_name is not nil*
       put customer_path(id: customer.id), params: { customer: { first_name: "" } }
       customer.reload
       expect(customer.first_name).to_not eq("nil")

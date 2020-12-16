@@ -7,6 +7,10 @@ class Customer < ApplicationRecord
   validates :email, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
 
+  # added orders
+
+  has_many :orders
+
   def full_name
     "#{first_name} #{last_name}"
   end
